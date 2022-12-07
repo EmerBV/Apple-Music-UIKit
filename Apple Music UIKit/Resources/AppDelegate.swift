@@ -10,10 +10,30 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // Si estoy logueado me llevará a la pantalla de:
+        if AuthManager.shared.isSignedIn {
+            window.rootViewController = TabBarViewController()
+        }
+        // Sino me llevará a:
+        else {
+            let navVC = UINavigationController(rootViewController: WelcomeViewController())
+            // Esto hace que el título de la vista aparezca en grande en vez de con letras pequeñas en la parte superior y en el medio
+            navVC.navigationBar.prefersLargeTitles = true
+            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
+            
+            window.rootViewController = navVC
+        }
+        
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        //print(AuthManager.shared.signInURL?.absoluteString)
+        
         return true
     }
 
