@@ -28,9 +28,15 @@ class TabBarViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: vc2)
         let nav3 = UINavigationController(rootViewController: vc3)
         
+        nav1.navigationBar.tintColor = UIColor(red: 0.98, green: 0.16, blue: 0.26, alpha: 1.00)
+        nav2.navigationBar.tintColor = UIColor(red: 0.98, green: 0.16, blue: 0.26, alpha: 1.00)
+        nav3.navigationBar.tintColor = UIColor(red: 0.98, green: 0.16, blue: 0.26, alpha: 1.00)
+        
         nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 2)
         nav3.tabBarItem = UITabBarItem(title: "Library", image: UIImage(systemName: "music.note.list"), tag: 3)
+        
+        tabBar.tintColor = UIColor(red: 0.98, green: 0.16, blue: 0.26, alpha: 1.00)
         
         nav1.navigationBar.prefersLargeTitles = true
         nav2.navigationBar.prefersLargeTitles = true
