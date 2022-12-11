@@ -47,7 +47,8 @@ final class APICaller {
     }
     
     public func getNewReleases(completion: @escaping ((Result<NewReleasesResponse, Error>)) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=10"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=10"), type: .GET) {
+            request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -70,7 +71,8 @@ final class APICaller {
     }
     
     public func getFeaturedPlaylist(completion: @escaping ((Result<FeaturedPlaylistsResponse, Error>)) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=1"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=1"), type: .GET) {
+            request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -91,10 +93,10 @@ final class APICaller {
             task.resume()
         }
     }
-    
-    public func getRecommendations(genres: Set<String>, completion: @escaping ((Result<String, Error>)) -> Void) {
+                                                                                    // String: si sólo queremos printar el json
+    public func getRecommendations(genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>)) -> Void) {
         let seeds = genres.joined(separator: ",")
-        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?seed_genres=\(seeds)"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?limit=1&seed_genres=\(seeds)"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -103,10 +105,10 @@ final class APICaller {
                 
                 do {
                     // Para mostrar el json en consola
-                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    //let result = try JSONDecoder().decode(FeaturedPlaylistsResponse.self, from: data)
+                    //let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    let result = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
                     print(result)
-                    //completion(.success(result))
+                    completion(.success(result))
                 }
                 catch {
                     completion(.failure(error))
@@ -117,7 +119,8 @@ final class APICaller {
     }
     
     public func getRecommendedGenres(completion: @escaping ((Result<RecommendedGenresResponse, Error>)) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"), type: .GET) {
+            request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -128,7 +131,7 @@ final class APICaller {
                     // Para mostrar el json en consola
                     //let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                     let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
-                    print(result)
+                    //print(result)
                     completion(.success(result))
                 }
                 catch {
