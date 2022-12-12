@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7961528B2941269200D136B4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961528A2941269200D136B4 /* AuthResponse.swift */; };
+		7984D3CD2947A54800448C1A /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984D3CC2947A54800448C1A /* NewReleasesCellViewModel.swift */; };
 		79A38DF0292BF6BB00C55DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A38DEF292BF6BB00C55DAF /* AppDelegate.swift */; };
 		79A38DF2292BF6BB00C55DAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A38DF1292BF6BB00C55DAF /* SceneDelegate.swift */; };
 		79A38DF4292BF6BB00C55DAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A38DF3292BF6BB00C55DAF /* HomeViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		7961528A2941269200D136B4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		7984D3CC2947A54800448C1A /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
 		79A38DEC292BF6BB00C55DAF /* Apple Music UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A38DEF292BF6BB00C55DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A38DF1292BF6BB00C55DAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		79A38E06292BFB9900C55DAF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7984D3CC2947A54800448C1A /* NewReleasesCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				79A38E0E292C008300C55DAF /* SearchViewController.swift in Sources */,
 				79A38E28292C02FF00C55DAF /* Playlist.swift in Sources */,
 				79A38E22292C025300C55DAF /* AuthManager.swift in Sources */,
+				7984D3CD2947A54800448C1A /* NewReleasesCellViewModel.swift in Sources */,
 				79A38E20292C021000C55DAF /* SearchResultsViewController.swift in Sources */,
 				79A38E16292C015F00C55DAF /* WelcomeViewController.swift in Sources */,
 				79A38E1A292C01A200C55DAF /* ProfileViewController.swift in Sources */,
